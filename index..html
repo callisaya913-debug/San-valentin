@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>San Valentín 💌</title>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #2b1055, #4b1c6b, #8b5fbf);
+        font-family: 'Georgia', 'Times New Roman', serif;
+        text-align: center;
+        padding-top: 80px;
+        color: #f2e9ff;
+        overflow: hidden;
+    }
+    .card{
+	background:
+    rgba(255,255,255,0.08);
+	backdrop-filter: blur(8px);
+	padding: 30px;
+	border-radius: 25px;
+	max-width: 360px;
+	margin: auto;
+	box-shadow: 0 20px 40px
+    rgba(0,0,0,0.4);
+    }
+
+    h1 {
+        font-size: 2.6em;
+        margin-bottom: 20px;
+        animation: fadeIn 2s ease;
+    }
+
+    p {
+        font-size: 1.3em;
+        margin-bottom: 40px;
+        animation: fadeIn 3s ease;
+    }
+
+    button {
+        font-size: 1.2em;
+        padding: 14px 28px;
+        margin: 10px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+    }
+
+    #yes {
+        background-color: #ff4d6d;
+        color: white;
+    }
+
+    #no {
+        background-color: #ddd;
+    }
+
+    img {
+        border-radius: 18px;
+        margin-bottom: 30px;
+        animation: fadeIn 2s ease;
+    }
+
+    .heart {
+	position: fixed;
+	bottom: -20px;
+	font-size: 24px;
+	animation: floatUp 4s linear forwards; 
+	opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+	from { transform: translateY(0); opacity: 1; }
+	to { transform: translateY(-100vh); opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+
+<body>
+
+<div style="max-width: 100px; margin:0 auto 14px;"> 
+<img src="mimujer.jpg" style="width:100%; height: auto; border-radius: 13px;"> 
+</div>
+
+<h1>🔹️ Pregunta importante 🔹️</h1>
+<p>¿Puedo ser tu San Valentín? 14/02</p>
+
+<button id="yes">Sí ❤️‍🩹</button>
+<button id="no">No 🙄</button>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 120);
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+yesBtn.addEventListener("click", () => {
+    document.body.innerHTML = `
+        <h1>Gracias por tanto, te amo infinitamente ❤️‍🩹</h1>
+        <p>Prometo hacerte pasar un día hermoso ❤️‍🩹</p>
+    	<p>Mi lugar favorito siempre va a ser donde estes vos.</p>
+	<p>No importa el dia, ni el plan, ni el lugar, que sea solo con vos.</p>
+	`;
+	lanzarCorazones();
+});
+
+function lanzarCorazones() {
+    for (let i = 0; i < 25; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️‍🩹";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+}
+</script>
+
+</body>
+</html>
